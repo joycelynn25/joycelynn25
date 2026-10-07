@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Venture Forge — AI Business Generator</title>
+  <meta name="description" content="Turn your skills, budget and market into costed, testable business ideas in under a minute. Built for founders in Ghana and emerging markets.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" type="module"></script>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Venture Forge home">
+        <img src="/favicon.svg" alt="" width="28" height="28"> Venture Forge
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#how">How it works</a>
+        <a href="#generate">Generate</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle dark mode">◐</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">AI business generator</p>
+        <h1>From “what could I start?” to a <span class="accent">costed plan</span> in a minute.</h1>
+        <p class="lead">Tell us your skills, budget and market. Get distinct business ideas with startup costs, pricing, a 90-day plan and the cheapest experiment that proves or kills each one.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#generate">Generate ideas</a>
+          <a class="btn btn-ghost" href="#how">See how it works</a>
+        </div>
+        <ul class="hero-points">
+          <li>Priced in GHS, NGN, KES and more</li>
+          <li>Mobile money &amp; WhatsApp-first</li>
+          <li>Honest viability scores</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="how" class="section">
+      <div class="container">
+        <h2>How it works</h2>
+        <ol class="steps">
+          <li>
+            <span class="step-num">1</span>
+            <h3>Describe yourself</h3>
+            <p>Skills, interests, budget, location and how much time you can commit.</p>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <h3>AI drafts the ventures</h3>
+            <p>Ideas are constrained to your budget, local prices and payment rails such as MoMo.</p>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <h3>Validate before you spend</h3>
+            <p>Each idea ships with a two-week test designed to kill bad ideas cheaply.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="generate" class="section section-alt">
+      <div class="container gen-layout">
+        <form id="gen-form" class="card form" novalidate>
+          <h2>Your founder profile</h2>
+          <div class="mode-badge" id="mode-badge" hidden></div>
+
+          <label for="skills">Skills <span class="hint">What can you do well?</span></label>
+          <textarea id="skills" name="skills" rows="2" maxlength="400" placeholder="e.g. Python, web development, sales, cooking, graphic design"></textarea>
+
+          <label for="interests">Interests <span class="hint">What do you care about?</span></label>
+          <textarea id="interests" name="interests" rows="2" maxlength="400" placeholder="e.g. agriculture, fintech, education, fashion"></textarea>
+
+          <div class="row">
+            <div>
+              <label for="budget">Starting budget</label>
+              <input id="budget" name="budget" type="number" min="0" step="100" value="5000" required>
+            </div>
+            <div>
+              <label for="currency">Currency</label>
+              <select id="currency" name="currency">
+                <option value="GHS" selected>GHS (₵)</option>
+                <option value="NGN">NGN (₦)</option>
+                <option value="KES">KES (KSh)</option>
+                <option value="ZAR">ZAR (R)</option>
+                <option value="USD">USD ($)</option>
+                <option value="GBP">GBP (£)</option>
+                <option value="EUR">EUR (€)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="location">Location</label>
+              <input id="location" name="location" type="text" maxlength="80" value="Accra, Ghana">
+            </div>
+            <div>
+              <label for="businessModel">Business model</label>
+              <select id="businessModel" name="businessModel">
+                <option value="any" selected>Any</option>
+                <option value="product">Physical product</option>
+                <option value="service">Service</option>
+                <option value="saas">Software / SaaS</option>
+                <option value="marketplace">Marketplace</option>
+                <option value="agency">Agency</option>
+                <option value="ecommerce">E-commerce</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <label for="time">Time commitment</label>
+              <select id="time" name="time">
+                <option value="side">Side hustle</option>
+                <option value="part-time" selected>Part-time</option>
+                <option value="full-time">Full-time</option>
+              </select>
+            </div>
+            <div>
+              <label for="risk">Risk appetite</label>
+              <select id="risk" name="risk">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+          </div>
+
+          <label for="targetMarket">Target market <span class="hint">Optional</span></label>
+          <input id="targetMarket" name="targetMarket" type="text" maxlength="200" placeholder="e.g. university students, SMEs, diaspora">
+
+          <label for="extra">Anything else? <span class="hint">Optional</span></label>
+          <textarea id="extra" name="extra" rows="2" maxlength="500" placeholder="e.g. I own a car, I have a shop space, I can only work evenings"></textarea>
+
+          <div class="row row-end">
+            <div>
+              <label for="count">Ideas</label>
+              <select id="count" name="count">
+                <option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option>
+              </select>
+            </div>
+            <button class="btn btn-primary btn-block" id="submit-btn" type="submit">Generate ideas</button>
+          </div>
+          <p class="form-error" id="form-error" role="alert" hidden></p>
+        </form>
+
+        <div class="results" id="results" aria-live="polite">
+          <div class="empty card" id="empty-state">
+            <h3>Your ideas will appear here</h3>
+            <p>Fill in your profile and press <strong>Generate ideas</strong>. Results are saved in this browser so you can come back to them.</p>
+            <div id="history" class="history" hidden>
+              <h4>Recent generations</h4>
+              <ul id="history-list"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="container narrow">
+        <h2>FAQ</h2>
+        <details>
+          <summary>Are these ideas guaranteed to work?</summary>
+          <p>No. They are hypotheses. The viability score and validation experiment exist so you can test cheaply with real customers before committing your budget.</p>
+        </details>
+        <details>
+          <summary>How accurate are the cost estimates?</summary>
+          <p>They are directional estimates based on typical local prices. Get real quotes from suppliers before spending; prices and exchange rates change.</p>
+        </details>
+        <details>
+          <summary>What happens to my inputs?</summary>
+          <p>Your profile is sent to the server only to generate ideas and is not stored there. Past results are saved in your own browser and can be cleared at any time.</p>
+        </details>
+        <details>
+          <summary>What is demo mode?</summary>
+          <p>When the server has no AI key configured, it returns template-based ideas so you can try the experience. The badge on the form tells you which mode you are in.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Venture Forge · Built for founders in Ghana and beyond. Ideas are AI-generated; verify before you invest.</p>
+    </div>
+  </footer>
+
+  <template id="idea-template">
+    <article class="card idea">
+      <header class="idea-head">
+        <div>
+          <h3 class="idea-name"></h3>
+          <p class="idea-tagline"></p>
+        </div>
+        <div class="score" title="Viability score out of 10">
+          <span class="score-num"></span><span class="score-den">/10</span>
+        </div>
+      </header>
+      <dl class="idea-grid">
+        <div><dt>Problem</dt><dd data-field="problem"></dd></div>
+        <div><dt>Solution</dt><dd data-field="solution"></dd></div>
+        <div><dt>Customers</dt><dd data-field="target_customers"></dd></div>
+        <div><dt>Business model</dt><dd data-field="business_model"></dd></div>
+        <div><dt>Pricing</dt><dd data-field="pricing"></dd></div>
+        <div><dt>Break-even</dt><dd data-field="break_even"></dd></div>
+      </dl>
+      <div class="costs">
+        <h4>Startup costs</h4>
+        <table><tbody></tbody><tfoot><tr><th>Total</th><td class="cost-total"></td></tr><tr class="muted"><th>Monthly running cost</th><td class="cost-monthly"></td></tr></tfoot></table>
+        <p class="budget-flag" hidden></p>
+      </div>
+      <details open>
+        <summary>Validation experiment</summary>
+        <p data-field="validation_experiment"></p>
+      </details>
+      <details>
+        <summary>First 90 days</summary>
+        <ol data-list="first_90_days"></ol>
+      </details>
+      <details>
+        <summary>Edge, risks and tools</summary>
+        <p><strong>Competitive edge:</strong> <span data-field="competitive_edge"></span></p>
+        <h5>Risks</h5>
+        <ul data-list="risks"></ul>
+        <h5>Tools &amp; channels</h5>
+        <ul class="chips" data-list="tools_and_channels"></ul>
+        <p class="muted"><strong>Why this score:</strong> <span data-field="viability_rationale"></span></p>
+      </details>
+    </article>
+  </template>
+</body>
+</html>
